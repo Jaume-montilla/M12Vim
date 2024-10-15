@@ -1,2 +1,2 @@
 # M12Vim
-My NeoVim config
+My NeoVim config for black retarded ape niggers
