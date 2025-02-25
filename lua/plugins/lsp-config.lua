@@ -1,17 +1,16 @@
-return{
+return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup()
 		end,
 	},
- {
-    "williamboman/mason-lspconfig.nvim",
+	{
+		"williamboman/mason-lspconfig.nvim",
 		config = function()
-		require("mason-lspconfig").setup({
-			ensure_installed = {"lua_ls", "rust_analyzer", "bashls", "arduino_language_server", "cssls", "vtsls", "html", "jsonls", "phpactor", "pylsp", "vuels"}
-
-		})
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "rust_analyzer", "bashls", "arduino_language_server", "cssls", "vtsls", "html", "jsonls", "phpactor", "pylsp", "vuels" }
+			})
 		end
 	},
 	{
@@ -32,8 +31,12 @@ return{
 
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set('n', '<leader>gv', function()
+				vim.cmd('vsplit')
+				vim.lsp.buf.definition()
+			end, {})
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		end
 	}
 }
